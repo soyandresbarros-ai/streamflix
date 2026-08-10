@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@400;600;700&display=swap");
+
+:root {
+  --marquee-950: #14101f;
+  --marquee-900: #1f1730;
+  --marquee-700: #3a2c5c;
+  --marquee-100: #f5f0e8;
+  --marigold-500: #f2a93b;
+  --marigold-400: #f6c26a;
+  --rose-500: #e85c6b;
+  --success-500: #3fae76;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--marquee-950);
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  color: var(--marquee-100);
+  padding: 24px;
+}
+
+.tarjeta {
+  width: 100%;
+  max-width: 380px;
+  background-color: var(--marquee-900);
+  border: 1px solid var(--marquee-700);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 28px;
+  text-align: center;
+  margin: 0 0 24px;
+}
+
+.acento {
+  color: var(--marigold-500);
+}
+
+.pestanas {
+  display: flex;
+  border: 1px solid var(--marquee-700);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.pestana {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  color: var(--marquee-100);
+  opacity: 0.6;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.pestana.activa {
+  background-color: var(--marigold-500);
+  color: var(--marquee-950);
+  opacity: 1;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formulario.oculto {
+  display: none;
+}
+
+label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--marquee-700);
+  background-color: var(--marquee-950);
+  color: var(--marquee-100);
+  font-family: inherit;
+  font-size: 14px;
+}
+
+input:focus-visible {
+  outline: 2px solid var(--marigold-500);
+  outline-offset: 1px;
+}
+
+.ayuda {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: rgba(245, 240, 232, 0.5);
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--marigold-500);
+  color: var(--marquee-950);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--marigold-400);
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.mensaje {
+  min-height: 20px;
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mensaje.exito {
+  color: var(--success-500);
+}
+
+.mensaje.error {
+  color: var(--rose-500);
+}

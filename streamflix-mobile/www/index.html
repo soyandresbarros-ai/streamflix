@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#0b0b0f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>StreamFlix | Autenticación</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="fondo"></div>
+    <main class="contenedor">
+      <header class="cabecera">
+        <div class="logo">
+          <span class="logo-icono">▶</span>
+          <h1>Stream<span class="acento">Flix</span></h1>
+        </div>
+        <p class="subtitulo">Tu entretenimiento, donde quieras</p>
+      </header>
+
+      <!-- Pestañas -->
+      <div class="pestanas" role="tablist" aria-label="Formularios de autenticación">
+        <button type="button" class="pestana activa" id="tab-registro" role="tab" aria-selected="true">
+          Registrarse
+        </button>
+        <button type="button" class="pestana" id="tab-login" role="tab" aria-selected="false">
+          Iniciar sesión
+        </button>
+      </div>
+
+      <!-- Formulario de registro -->
+      <form id="form-registro" class="formulario" novalidate autocomplete="on">
+        <div class="campo">
+          <label for="registro-usuario">Usuario</label>
+          <input
+            type="text"
+            id="registro-usuario"
+            name="usuario"
+            autocomplete="username"
+            placeholder="Elige un nombre de usuario"
+            required
+            minlength="3"
+            maxlength="30"
+          />
+        </div>
+
+        <div class="campo">
+          <label for="registro-password">Contraseña</label>
+          <div class="input-password">
+            <input
+              type="password"
+              id="registro-password"
+              name="password"
+              autocomplete="new-password"
+              placeholder="Mínimo 6 caracteres"
+              minlength="6"
+              required
+            />
+            <button type="button" class="btn-ojo" data-target="registro-password" aria-label="Mostrar contraseña">
+              👁
+            </button>
+          </div>
+          <p class="ayuda">Mínimo 6 caracteres</p>
+        </div>
+
+        <button type="submit" class="btn-principal">
+          <span class="btn-texto">Crear cuenta</span>
+          <span class="btn-spinner oculto"></span>
+        </button>
+      </form>
+
+      <!-- Formulario de login -->
+      <form id="form-login" class="formulario oculto" novalidate autocomplete="on">
+        <div class="campo">
+          <label for="login-usuario">Usuario</label>
+          <input
+            type="text"
+            id="login-usuario"
+            name="usuario"
+            autocomplete="username"
+            placeholder="Tu nombre de usuario"
+            required
+          />
+        </div>
+
+        <div class="campo">
+          <label for="login-password">Contraseña</label>
+          <div class="input-password">
+            <input
+              type="password"
+              id="login-password"
+              name="password"
+              autocomplete="current-password"
+              placeholder="Tu contraseña"
+              required
+            />
+            <button type="button" class="btn-ojo" data-target="login-password" aria-label="Mostrar contraseña">
+              👁
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-principal">
+          <span class="btn-texto">Ingresar</span>
+          <span class="btn-spinner oculto"></span>
+        </button>
+      </form>
+
+      <!-- Mensajes -->
+      <p id="mensaje" class="mensaje" aria-live="polite" role="status"></p>
+
+      <!-- Pantalla de éxito (después de login) -->
+      <section id="pantalla-exito" class="pantalla-exito oculto">
+        <div class="exito-icono">✓</div>
+        <h2>¡Bienvenido!</h2>
+        <p id="texto-bienvenida">Has iniciado sesión correctamente.</p>
+        <button type="button" id="btn-cerrar-sesion" class="btn-secundario">Cerrar sesión</button>
+      </section>
+    </main>
+
+    <footer class="pie">
+      <p>StreamFlix Auth · Capacitor + Android</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
