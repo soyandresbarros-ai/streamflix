@@ -1,9 +1,3 @@
-/**
- * ui.js
- * Capa de presentación - manipulación del DOM y feedback visual.
- * Responsabilidad única: actualizar la interfaz.
- */
-
 (function (global) {
   "use strict";
 
@@ -19,7 +13,6 @@
   };
 
   /**
-   * Muestra un mensaje de éxito o error.
    * @param {string} texto
    * @param {"exito"|"error"} tipo
    */

@@ -48,7 +48,6 @@ export function crearAuthController(supabase) {
     const { usuario, password } = req.body;
 
     try {
-      // 1. Buscar el usuario por su nombre de usuario.
       const { data: usuarioEncontrado, error: errorConsulta } = await supabase
         .from("usuarios")
         .select("id, usuario, password")
@@ -72,7 +71,6 @@ export function crearAuthController(supabase) {
         return respuestaError(res, 401, "Error en la autenticación.");
       }
 
-      // 3. Autenticación correcta.
       return respuestaExitosa(res, 200, "Autenticación satisfactoria.", {
         usuario: usuarioEncontrado.usuario,
       });

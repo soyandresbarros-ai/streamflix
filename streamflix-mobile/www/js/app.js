@@ -1,10 +1,3 @@
-/**
- * app.js
- * Punto de entrada / controlador de la aplicación móvil.
- * Orquesta eventos de UI y llamadas a la API.
- * Patrón: Controller (MVC ligero).
- */
-
 (function () {
   "use strict";
 

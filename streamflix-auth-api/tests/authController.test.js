@@ -1,25 +1,8 @@
-/**
- * tests/authController.test.js
- *
- * Pruebas unitarias del controlador de autenticación.
- *
- * En lugar de conectarse a un proyecto real de Supabase, se construye un
- * cliente "falso" (mock) en memoria que imita la interfaz fluida usada
- * en el controlador (`.from().select().eq().maybeSingle()` / `.insert()`).
- * Esto permite validar toda la lógica de negocio (registro, duplicados,
- * login correcto/incorrecto) de forma rápida, repetible y sin depender
- * de la red ni de credenciales reales.
- */
 import test from "node:test";
 import assert from "node:assert/strict";
 import { crearAuthController } from "../src/controllers/authController.js";
 import bcrypt from "bcryptjs";
 
-/**
- * Crea un cliente de Supabase simulado respaldado por un arreglo en
- * memoria, suficiente para reproducir el comportamiento que el
- * controlador espera de la tabla `usuarios`.
- */
 function crearSupabaseFalso(usuariosIniciales = []) {
   const usuarios = [...usuariosIniciales];
 
@@ -48,11 +31,10 @@ function crearSupabaseFalso(usuariosIniciales = []) {
         },
       };
     },
-    _usuarios: usuarios, // acceso directo, útil para inspeccionar el estado en las pruebas
+    _usuarios: usuarios,
   };
 }
 
-/** Crea objetos req/res mínimos compatibles con Express para las pruebas. */
 function crearReqRes(body) {
   const res = {
     statusCode: null,
@@ -80,7 +62,6 @@ test("registrar() crea un usuario nuevo y devuelve 201", async () => {
   assert.equal(res.payload.ok, true);
   assert.match(res.payload.mensaje, /registrado exitosamente/i);
   assert.equal(supabaseFalso._usuarios.length, 1);
-  // La contraseña jamás debe guardarse en texto plano.
   assert.notEqual(supabaseFalso._usuarios[0].password, "clave123");
 });
 

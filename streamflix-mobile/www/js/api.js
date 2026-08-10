@@ -1,16 +1,8 @@
-/**
- * api.js
- * Capa de acceso a datos / servicios.
- * Encapsula las llamadas HTTP a la API de autenticación StreamFlix.
- * Patrón: Service / Repository simple.
- */
-
 (function (global) {
   "use strict";
 
   /**
-   * Realiza una petición POST JSON al endpoint de autenticación.
-   * @param {string} endpoint - Ruta relativa (ej: "/registro", "/login")
+   * @param {string} endpoint 
    * @param {{ usuario: string, password: string }} body
    * @returns {Promise<{ status: number, data: object }>}
    */
